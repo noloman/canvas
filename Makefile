@@ -1,4 +1,10 @@
-.PHONY: cover start test test-integration
+.PHONY: build run cover start test test-integration
+
+run:
+	docker run -p 8081:8080 -e HOST="" canvas
+	
+build:
+	docker build -t canvas .
 
 cover:
 	go tool cover -html=cover.out
